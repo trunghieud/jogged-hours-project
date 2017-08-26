@@ -11,8 +11,8 @@ public class JoggedHoursProject
 		String registerUsers = AppBasics.requestString("Let's start with your registration! Please enter your name:");
 		while (!registerUsers.equalsIgnoreCase("exit"))
 		{
-			int joggersLog = AppBasics.requestInt("How many days have you been jogging this week?", 0, 7);
-			int totalHoursJogged = 0;
+			float joggersLog = AppBasics.requestFloat("How many days have you been jogging this week?", 0, 7);
+			float totalHoursJogged = 0;
 			float avgHoursJogged = 0;
 			for (int i = 1; i <= joggersLog; i++)
 			{
@@ -35,7 +35,7 @@ public class JoggedHoursProject
 	 * Extremist Jogger.Amateur is under 15 hours, Efficient is 15-40 hours, and
 	 * an Extremist is over 40.
 	 */
-	private static String joggerStatus(int hours)
+	private static String joggerStatus(float hours)
 	{
 		String status = "Amateur Jogger";
 		if (hours < 15)

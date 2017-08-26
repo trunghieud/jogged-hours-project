@@ -124,7 +124,7 @@ public class AppBasics
 		return num;
 	}
 
-	public static float requestFloat(String question)
+	public static float requestFloat(String question, float min, float max)
 	{
 		float num = 0;
 		String input;
@@ -136,10 +136,25 @@ public class AppBasics
 			try
 			{
 				num = Float.parseFloat(input);
+				if (num > max)
+				{
+					throw new RequestIntOverMaxException();
+				} else if (num < min)
+				{
+					throw new RequestIntUnderMinException();
+				}
 				isValid = true;
 			} catch (NumberFormatException e)
 			{
 				System.out.println("You did not supply a valid number [" + input + "]. please provide only digits.");
+			} catch (RequestIntOverMaxException e)
+			{
+				System.out.println("You have exceeded the max value of " + max + " [" + input
+						+ "]. Please provide a number within range.");
+			} catch (RequestIntUnderMinException e)
+			{
+				System.out.println("You have not reached the min value of " + min + " [" + input
+						+ "]. Please provide a number within range.");
 			}
 		}
 		return num;
