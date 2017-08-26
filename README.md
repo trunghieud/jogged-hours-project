@@ -1,6 +1,6 @@
-# Basic Project
+# Jogged-Hours-Project
 
-*Structure for creating a Basic project.*
+*Structure for creating an application which logs jogged hours into the system.*
 
 **Java 7**
 
